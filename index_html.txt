@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Asrama Yamo (ASMAYA)</title>
+  <meta name="description" content="Website resmi Asrama Yamo - ASMAYA" />
+  <style>
+    :root{--accent:#2b6cb0;--muted:#6b7280;--card:#fff;--bg:#f7fafc}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0;background:var(--bg);color:#0f172a;line-height:1.5}
+    a{color:var(--accent);text-decoration:none}
+    header{background:linear-gradient(90deg,#ffffff 0%, #f1f5f9 100%);box-shadow:0 2px 6px rgba(10,15,25,0.06);position:sticky;top:0;z-index:50}
+    .container{max-width:1100px;margin:0 auto;padding:1rem}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:.5rem;align-items:center;font-weight:700}
+    .brand .logo{width:44px;height:44px;border-radius:8px;background:var(--accent);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+    nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+    button.cta{background:var(--accent);color:#fff;border:none;padding:.5rem .9rem;border-radius:8px;cursor:pointer}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center;padding:3rem 0}
+    .hero h1{font-size:2rem;margin:0 0 .6rem}
+    .hero p{color:var(--muted);margin:0 0 1rem}
+    .card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+
+    /* Sections */
+    section{padding:2rem 0}
+    .grid{display:grid;gap:1rem}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-2{grid-template-columns:repeat(2,1fr)}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer}
+
+    /* Form */
+    form .row{display:flex;gap:.6rem}
+    input,textarea,select{width:100%;padding:.6rem;border-radius:8px;border:1px solid #e6e9ef}
+
+    /* Footer */
+    footer{padding:1.6rem 0;background:#fff;margin-top:2rem;border-top:1px solid #eef2f7}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .cols-3{grid-template-columns:1fr}
+      nav ul{display:none}
+    }
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(2,6,23,0.55);display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity .2s}
+    .lightbox.show{opacity:1;pointer-events:auto}
+    .lightbox img{max-width:95%;max-height:85%;border-radius:10px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">AY</div>
+        <div>
+          <div>Asrama Yamo</div>
+          <small style="color:var(--muted);display:block">ASMAYA — Rumah Keluarga Mahasiswa</small>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#gallery">Galeri</a></li>
+          <li><a href="#daftar">Daftar</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+      <button class="cta" onclick="document.getElementById('daftar').scrollIntoView({behavior:'smooth'})">Daftar Sekarang</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Selamat Datang di Asrama Yamo (ASMAYA)</h1>
+        <p>Asrama ramah, aman, dan terjangkau untuk mahasiswa. Fasilitas belajar, kamar bersih, dan program bimbingan — hadir untuk mendukung keberhasilan akademikmu.</p>
+        <div style="display:flex;gap:.75rem;margin-top:1rem">
+          <a class="cta" href="#daftar">Daftar</a>
+          <a href="#gallery" style="align-self:center">Lihat Galeri</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Info Singkat</h3>
+        <p style="color:var(--muted)">Lokasi: Kampus Tengah • Kapasitas: 60 tempat tidur • Biaya: Mulai Rp 350.000/bulan</p>
+        <hr style="border:none;border-top:1px solid #eef2f7;margin:1rem 0">
+        <h4>Fasilitas</h4>
+        <ul style="margin:0;padding-left:1.1rem;color:var(--muted)">
+          <li>Ruang belajar & Wi‑Fi</li>
+          <li>Dapur bersama</li>
+          <li>Laundry & kebersihan mingguan</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>Tentang Asrama</h2>
+      <div class="card" style="margin-top:1rem">
+        <p>Asrama Yamo (ASMAYA) berdiri untuk menyediakan hunian yang mendukung kegiatan belajar mahasiswa. Kami menerapkan aturan ketenangan, kebersihan, dan gotong royong agar lingkungan nyaman untuk semua penghuni.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+          <div>
+            <h3>Visi</h3>
+            <p style="color:var(--muted)">Menjadi asrama yang memfasilitasi prestasi akademik dan karakter positif.</p>
+          </div>
+          <div>
+            <h3>Misi</h3>
+            <ol style="color:var(--muted)">
+              <li>Menyediakan lingkungan belajar kondusif.</li>
+              <li>Meningkatkan kemandirian penghuni melalui program rutin.</li>
+              <li>Mengelola fasilitas dengan transparan.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2>Galeri Kegiatan</h2>
+      <p style="color:var(--muted);margin-top:.4rem">Klik gambar untuk memperbesar.</p>
+      <div class="gallery" style="margin-top:1rem">
+        <img src="https://via.placeholder.com/800x600?text=Kegiatan+1" alt="Kegiatan 1" data-full="https://via.placeholder.com/1600x1200?text=Kegiatan+1">
+        <img src="https://via.placeholder.com/800x600?text=Kegiatan+2" alt="Kegiatan 2" data-full="https://via.placeholder.com/1600x1200?text=Kegiatan+2">
+        <img src="https://via.placeholder.com/800x600?text=Kegiatan+3" alt="Kegiatan 3" data-full="https://via.placeholder.com/1600x1200?text=Kegiatan+3">
+        <img src="https://via.placeholder.com/800x600?text=Kegiatan+4" alt="Kegiatan 4" data-full="https://via.placeholder.com/1600x1200?text=Kegiatan+4">
+        <img src="https://via.placeholder.com/800x600?text=Kegiatan+5" alt="Kegiatan 5" data-full="https://via.placeholder.com/1600x1200?text=Kegiatan+5">
+        <img src="https://via.placeholder.com/800x600?text=Kegiatan+6" alt="Kegiatan 6" data-full="https://via.placeholder.com/1600x1200?text=Kegiatan+6">
+      </div>
+    </section>
+
+    <section id="daftar">
+      <h2>Formulir Pendaftaran Penghuni Baru</h2>
+      <div class="card" style="margin-top:1rem">
+        <form id="regForm" onsubmit="return handleForm(event)">
+          <div class="row">
+            <div style="flex:1">
+              <label>Nama Lengkap</label>
+              <input type="text" id="nama" required placeholder="Nama lengkap" />
+            </div>
+            <div style="width:160px">
+              <label>Usia</label>
+              <input type="number" id="usia" required min="15" max="60" />
+            </div>
+          </div>
+          <div style="margin-top:.6rem">
+            <label>Program Studi</label>
+            <input type="text" id="prodi" required placeholder="Contoh: Teknik Informatika" />
+          </div>
+          <div style="margin-top:.6rem">
+            <label>Jenis Kamar</label>
+            <select id="kamar">
+              <option value="single">Single - Rp 550.000 / bulan</option>
+              <option value="shared">Shared - Rp 350.000 / bulan</option>
+            </select>
+          </div>
+          <div style="margin-top:.6rem">
+            <label>Alamat Darurat</label>
+            <textarea id="alamat" rows="3" placeholder="Nama & nomor orang terdekat"></textarea>
+          </div>
+          <div style="display:flex;gap:.6rem;margin-top:.8rem;align-items:center">
+            <button class="cta" type="submit">Kirim Pendaftaran</button>
+            <small style="color:var(--muted)">Kami akan menghubungi via nomor yang Anda cantumkan (simulasi).</small>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <h2>Kontak</h2>
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:1rem;margin-top:1rem">
+        <div class="card">
+          <h3>Informasi</h3>
+          <p style="color:var(--muted)">Alamat: Jl. Kampus Tengah No. 10 • Telepon: +62 812 3456 7890 • Email: asmaya@example.com</p>
+          <h4>Pengurus</h4>
+          <ul style="color:var(--muted);padding-left:1rem">
+            <li>Ketua: Bapak/Ibu Nama</li>
+            <li>Sekretaris: Nama Lain</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Pesan Cepat</h3>
+          <form id="msgForm" onsubmit="return handleMsg(event)">
+            <input id="msgNama" placeholder="Nama" required />
+            <input id="msgEmail" placeholder="Email" type="email" required style="margin-top:.6rem" />
+            <textarea id="msgText" rows="4" placeholder="Pesan" style="margin-top:.6rem"></textarea>
+            <div style="display:flex;justify-content:flex-end;margin-top:.6rem">
+              <button class="cta" type="submit">Kirim</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+      <div>&copy; ASMAYA — Asrama Yamo <span id="year"></span></div>
+      <div style="color:var(--muted)">Dibuat dengan ❤️ untuk komunitas</div>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox
+    const gallery = document.querySelectorAll('.gallery img');
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    gallery.forEach(img=>{
+      img.addEventListener('click',()=>{
+        lbImg.src = img.dataset.full || img.src;
+        lb.classList.add('show');
+      })
+    });
+    function closeLightbox(e){
+      if(e.target !== lbImg) lb.classList.remove('show');
+    }
+
+    // Form handlers (simulation)
+    function handleForm(e){
+      e.preventDefault();
+      const data = {
+        nama:document.getElementById('nama').value,
+        usia:document.getElementById('usia').value,
+        prodi:document.getElementById('prodi').value,
+        kamar:document.getElementById('kamar').value,
+        alamat:document.getElementById('alamat').value
+      };
+      // Simulasi: tampilkan ringkasan pendaftaran
+      alert('Pendaftaran terkirim!\n\nNama: '+data.nama+'\nProgram: '+data.prodi+'\nJenis kamar: '+data.kamar);
+      e.target.reset();
+      return false;
+    }
+
+    function handleMsg(e){
+      e.preventDefault();
+      const nama = document.getElementById('msgNama').value;
+      const email = document.getElementById('msgEmail').value;
+      alert('Terima kasih, '+nama+'! Pesan Anda telah diterima (simulasi). Kami akan membalas ke '+email);
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
